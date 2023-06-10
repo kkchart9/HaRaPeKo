@@ -3,3 +3,79 @@
   <%= form.text_field :store_name %>
   <%= form.submit "Search" %>
 <% end %>
+
+
+<button onclick='getLocation()'>現在地の取得</button>
+
+<%
+  result = Geocoder.search("Paris")
+  puts result.first.coordinates
+%>
+<script>
+    if (navigator.geolocation) {
+        alert("この端末では位置情報が取得できます");
+        // Geolocation APIに対応していない
+    } else {
+        alert("この端末では位置情報が取得できません");
+    }
+    // 取得に成功した場合の処理
+    function successCallback(position){
+        // 緯度を取得し画面に表示
+        var latitude = position.coords.latitude;
+        console.log(position);
+        console.log(latitude);
+        // 経度を取得し画面に表示
+        var longitude = position.coords.longitude;
+        console.log(longitude);
+    };
+
+    // 取得に失敗した場合の処理
+    function errorCallback(error){
+        alert("位置情報が取得できませんでした"+error);
+
+    };
+
+function  getLocation() {
+    console.log('getlocation');
+    // 現在地を取得
+    navigator.geolocation.getCurrentPosition(
+      // 取得成功した場合
+      function(position) {
+          alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
+      },
+      // 取得失敗した場合
+      function(error) {
+          switch(error.code) {
+              case 1: //PERMISSION_DENIED
+                  alert("位置情報の利用が許可されていません");
+                  break;
+              case 2: //POSITION_UNAVAILABLE
+                  alert("現在位置が取得できませんでした");
+                  break;
+              case 3: //TIMEOUT
+                  alert("タイムアウトになりました");
+                  break;
+              default:
+                  alert("その他のエラー(エラーコード:"+error.code+")");
+                  break;
+          }
+      }
+    );
+
+    // console.log(showPosition);
+    console.log(navigator.geolocation.getCurrentPosition(successCallback));
+    // console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback));
+}
+
+function showPosition(position) {
+
+    $.ajax({
+        type: 'GET',
+        url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&sensor=true&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&language=en`,
+    }).then(function(response){
+        console.log(response);
+    })
+
+}
+
+</script>
