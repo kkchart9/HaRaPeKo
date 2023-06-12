@@ -7,17 +7,13 @@
 
 <button onclick='getLocation()'>現在地の取得</button>
 
-<%
-  result = Geocoder.search("Paris")
-  puts result.first.coordinates
-%>
 <script>
-    if (navigator.geolocation) {
-        alert("この端末では位置情報が取得できます");
-        // Geolocation APIに対応していない
-    } else {
-        alert("この端末では位置情報が取得できません");
-    }
+    // if (navigator.geolocation) {
+    //     alert("この端末では位置情報が取得できます");
+    //     // Geolocation APIに対応していない
+    // } else {
+    //     alert("この端末では位置情報が取得できません");
+    // }
     // 取得に成功した場合の処理
     function successCallback(position){
         // 緯度を取得し画面に表示
@@ -35,8 +31,9 @@
 
     };
 
-function  getLocation() {
-    console.log('getlocation');
+    console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback));
+
+    function  getLocation() {
     // 現在地を取得
     navigator.geolocation.getCurrentPosition(
       // 取得成功した場合
@@ -62,20 +59,7 @@ function  getLocation() {
       }
     );
 
-    // console.log(showPosition);
-    console.log(navigator.geolocation.getCurrentPosition(successCallback));
     // console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback));
-}
-
-function showPosition(position) {
-
-    $.ajax({
-        type: 'GET',
-        url: `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&sensor=true&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&language=en`,
-    }).then(function(response){
-        console.log(response);
-    })
-
 }
 
 </script>
