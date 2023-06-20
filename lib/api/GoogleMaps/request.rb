@@ -28,6 +28,7 @@ module Api
         client = HTTPClient.new
         response = client.get(url)
         res_json = JSON.parse(response.body)
+        puts "API情報:" + url
         res_json["results"][0]["geometry"]["location"]
       end
 

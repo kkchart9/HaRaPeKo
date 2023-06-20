@@ -6,6 +6,7 @@ class ShopsController < ApplicationController
 
   def search
     query = shops_search_params
+    puts query
 
     # 場所指定があった場合の対応
     if query[:pref] != "都道府県を指定する"
@@ -14,6 +15,7 @@ class ShopsController < ApplicationController
       query[:latitude] = location["lat"]
       query[:longitude] = location["lng"]
     end
+    puts query
     open_recruit = Api::Recruit::Request.new(query)
     @response = open_recruit.request(query)
     render "result"
