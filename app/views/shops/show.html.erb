@@ -1,0 +1,10 @@
+<div class="content col-9 shop-details">
+  <% @response["results"]["shop"].each do |res| %>
+    <h2><%= res['name'] %></h2>
+    <%= res['access'] %>
+    <%= image_tag res["photo"]["pc"]["l"] %>
+  <% end %>
+</div>
+
+<script>
+</script>

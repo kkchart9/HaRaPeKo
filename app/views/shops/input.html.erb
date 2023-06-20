@@ -1,0 +1,95 @@
+<div class="content col-8">
+  <h1 class="title">HaRaPeKo</h1>
+
+  <div class="col-10 form">
+    <div class="row">
+      <div class="col-md">
+        <%= form_with url: "/shops", method: :post, data: { turbo: false } do |form| %>
+          <div class="form-group">
+            <%#= form.label :store_name, "Search for:" %>
+            <div class="text-field">
+              <%= form.text_field :store_name, placeholder: '店名を検索', class: "col-5" %>
+              <%= form.text_field :locations, placeholder: '場所を指定', class: "col-5" %>
+            </div>
+            <div class="radio-group">
+              <% @ranges.each_with_index do |range, idx| %>
+                <label for="range_<%= idx+1 %>">
+                  <%= form.radio_button(:range, idx+1, class: 'input-radio') %>
+                  <%= range %>
+                </label>
+              <% end %>
+            </div>
+            <%= form.hidden_field :latitude, id: 'latitude' %>
+            <%= form.hidden_field :longitude, id: 'longitude' %>
+            <div class="button-field">
+              <%= form.submit "検索", class: 'btn btn-warning' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  let rangeDef = document.getElementById('range_3');
+  rangeDef.checked = true;
+
+    // 取得に成功した場合の処理
+    function successCallback(position){
+        // 緯度を取得し画面に表示
+        var latitude = position.coords.latitude;
+        console.log(position);
+        console.log(latitude);
+        // 経度を取得し画面に表示
+        var longitude = position.coords.longitude;
+        console.log(longitude);
+        var latitude = 26.3176459
+        var longitude = 127.8282475
+
+        $('#latitude').val(latitude);
+        $('#longitude').val(longitude);
+    };
+
+    // 取得に失敗した場合の処理
+    function errorCallback(error){
+        alert("位置情報が取得できませんでした"+error);
+        var latitude = 26.3176459
+        var longitude = 127.8282475
+        $('#latitude').val(latitude);
+        $('#longitude').val(longitude);
+    };
+
+    console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback));
+
+
+    function  getLocation() {
+    // 現在地を取得
+    navigator.geolocation.getCurrentPosition(
+      // 取得成功した場合
+      function(position) {
+          alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
+      },
+      // 取得失敗した場合
+      function(error) {
+          switch(error.code) {
+              case 1: //PERMISSION_DENIED
+                  alert("位置情報の利用が許可されていません");
+                  break;
+              case 2: //POSITION_UNAVAILABLE
+                  alert("現在位置が取得できませんでした");
+                  break;
+              case 3: //TIMEOUT
+                  alert("タイムアウトになりました");
+                  break;
+              default:
+                  alert("その他のエラー(エラーコード:"+error.code+")");
+                  break;
+          }
+      }
+    );
+
+    // console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback));
+}
+</script>

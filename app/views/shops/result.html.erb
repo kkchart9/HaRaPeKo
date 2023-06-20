@@ -1,0 +1,42 @@
+<% require 'json' %>
+<h1 class="title title-response">
+  検索結果
+</h1>
+<div class="content col-9 response">
+  <div class="res-field">
+  </div>
+  <section id="pager"></section>
+</div>
+
+<script>
+  let shops = [
+      <% @response["results"]["shop"].each do |res| %>
+      {
+          shop_id: '<%= res["id"] %>',
+          shop_name: '<%= res["name"] %>',
+          access: '<%= res["access"] %>',
+          logo_img: '<%= res["logo_image"] %>'
+      },
+      <% end %>
+  ]
+
+  $(function () {
+      $('#pager').pagination({
+          dataSource: shops,
+          pageSize: 9,
+          prevText: '&lt; 前へ',
+          nextText: '次へ &gt;',
+          callback: function(data, pagination) {
+              $('.res-field').html(template(data));
+          }
+      })
+  })
+
+  function template(dataArray) {
+      return dataArray.map(function(data) {
+          return '<a class="shop-field col-4" href="/shops/'+ data.shop_id + '"><div class="row"><div class="col-md shop"><h5>' + data.shop_name + '</h5><div class="shops-detail"><img src="' + data.logo_img + '" alt="" class="logo-img"><p>' + data.access + '</p></div></div></div></a>'
+      })
+  }
+</script>
+
+<%#= paginate @response %>
