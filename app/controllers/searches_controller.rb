@@ -8,6 +8,7 @@ class SearchesController < ApplicationController
     query = store_search_params
     open_recruit = Api::Recruit::Request.new(query)
     @response = open_recruit.request(query)
+    puts @response
     render "result"
   end
 
