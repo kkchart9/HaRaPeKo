@@ -19,7 +19,7 @@ footer {
 }
 
 .content {
-  height: 400px;
+  height: 440px;
   margin: auto;
   background-color: #F7F7F7;
   border-radius: 16px;
@@ -89,6 +89,68 @@ footer {
     text-align: center;
     margin-top: 36px;
     margin-bottom: 16px;
+    .text-box {
+      padding: 8px 10px;
+      border: 1px solid #969da3;
+      border-radius: 25px;
+      color: #333;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    &::placeholder {
+      color: #999;
+    }
+  }
+  .select-group {
+    text-align: center;
+    margin-bottom: 16px;
+    .select-box {
+      position: relative;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      pointer-events: none;
+    }
+
+    &::before {
+      display: inline-block;
+      right: 0;
+      width: 2.8em;
+      height: 2.8em;
+      border-radius: 0 25px 25px 0;
+      background-color: #2589d0;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 1.4em;
+      transform: translate(50%, -50%) rotate(45deg);
+      width: 6px;
+      height: 6px;
+      border-bottom: 3px solid #fff;
+      border-right: 3px solid #fff;
+    }
+
+    & select {
+      appearance: none;
+      min-width: 230px;
+      height: 2.8em;
+      padding: .4em 3.6em .4em .8em;
+      border: none;
+      border-radius: 25px;
+      background-color: $third-color;
+      color: #333;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    & select:focus {
+      outline: 2px solid $sub-color;
+    }
   }
   .button-field {
     text-align: center;
@@ -150,9 +212,7 @@ footer {
 }
 
 input[type="text"]:focus {
-  box-shadow: 0 0 5px 0 $sub-color;
-  border: 2px solid #FFF;
-  outline: 0;
+  outline: 2px solid $sub-color;
 }
 
 

@@ -1,0 +1,21 @@
+.shop-details {
+  height: 640px;
+  display: flex;
+  padding: 56px;
+
+  .left-side {
+    .shop-photo {
+      width: 320px;
+      height: 208px;
+      object-fit: cover;
+      display: block;
+      margin: auto;
+    }
+  }
+
+  .right-side {
+    padding: 0 48px;
+  }
+
+
+}

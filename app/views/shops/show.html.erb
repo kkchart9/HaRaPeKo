@@ -1,8 +1,15 @@
 <div class="content col-9 shop-details">
   <% @response["results"]["shop"].each do |res| %>
-    <h2><%= res['name'] %></h2>
-    <%= res['access'] %>
-    <%= image_tag res["photo"]["pc"]["l"] %>
+
+    <div class="col-4 left-side">
+      <%= image_tag res["photo"]["pc"]["l"], class: "shop-photo" %>
+    </div>
+    <div class="col-8 right-side">
+      <h2><%= res['name'] %></h2>
+      <h4><%= res['catch'] %></h4>
+      <%= res['access'] %>
+    </div>
+
   <% end %>
 </div>
 

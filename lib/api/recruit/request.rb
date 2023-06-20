@@ -31,11 +31,6 @@ module Api
           :count => 50
         }
 
-        # client = HTTPClient.new
-        # url = Addressable::URI.parse ENV['GOURMET_SEARCH_API']
-        # url_query = params.to_param
-        # url = url.to_s + '?' + url_query.to_s
-
         url = create_url(params)
 
         store_name = query['store_name']
@@ -54,11 +49,6 @@ module Api
           :id => shop_id
         }
 
-        # client = HTTPClient.new
-        # url = Addressable::URI.parse ENV['GOURMET_SEARCH_API']
-        # url_query = params.to_param
-        # url = url.to_s + '?' + url_query.to_s
-
         url = create_url(params)
         client = HTTPClient.new
         response = client.get(url)
@@ -74,8 +64,6 @@ module Api
 
         url.to_s
       end
-
-
     end
   end
 end
