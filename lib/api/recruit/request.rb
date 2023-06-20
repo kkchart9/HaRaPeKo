@@ -33,11 +33,10 @@ module Api
         client = HTTPClient.new
         url = Addressable::URI.parse ENV['GOURMET_SEARCH_API']
         puts url
-        url.query = params.to_param
-        puts url
+        url_query = params.to_param
         store_name = query['store_name']
-        url.query += "?name=" + store_name
-        puts url
+        url_query += "&name=" + store_name
+        url = url.to_s + '?' + url_query.to_s
 
         response = client.get(url)
         res_json = JSON.parse(response.body)
