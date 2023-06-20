@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'searches#input'
   get '/home', to: 'application#home'
-  get '/search', to: 'searches#search'
-  post '/search', to: 'application#home'
+  get '/search', to: 'searches#input'
+  post '/search', to: 'searches#search'
 
 end

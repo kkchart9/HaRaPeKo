@@ -13,8 +13,12 @@
 
   <body>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <%= yield %>
-    <%#= render 'layouts/footer' %>
+    <script src="https://pagination.js.org/dist/2.6.0/pagination.js"></script>
+    <div class="main">
+      <%= render 'layouts/header' %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
 
 
     <!-- JavaScript Bundle with Popper -->

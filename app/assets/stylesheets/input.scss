@@ -1,0 +1,196 @@
+$main-color: #F37222;
+$sub-color: #FBAA31;
+$third-color: #FFF2C1;
+header {
+  height: 96px;
+}
+body {
+  height: 100vh;
+  .main {
+    height: 100%;
+    background: linear-gradient(to bottom right, $third-color, $sub-color);
+  }
+}
+footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.content {
+  height: 400px;
+  margin: auto;
+  background-color: #F7F7F7;
+  border-radius: 16px;
+  box-shadow: 0 0 8px gray;
+  .form {
+    margin: auto;
+    background-color: #F7F7F7;
+  }
+
+  .res-field {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 8px;
+
+    .shop-field {
+      height: 160px;
+      padding: 16px;
+      transition: box-shadow 0.3s;
+      border-radius: 15px;
+      &:hover {
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        background-color: $third-color;
+      }
+      h5 {
+        color: $main-color;
+      }
+      .shops-detail {
+        display: flex;
+        justify-content: space-around;
+        p {
+          width: 210px;
+          height: 80px;
+          overflow: auto;
+        }
+      }
+    }
+  }
+}
+
+.response {
+  height: 560px;
+}
+
+.logo-img {
+  height: 64px;
+  width: 64px;
+}
+
+.title {
+  text-align: center;
+  color: #F37222;
+  padding-top: 32px;
+  margin-bottom: 24px;
+}
+.title-response {
+  padding-top: 0;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  .text-field {
+    text-align: center;
+    margin-top: 36px;
+    margin-bottom: 16px;
+  }
+  .button-field {
+    text-align: center;
+    margin-top: 48px;
+  }
+}
+
+.radio-group {
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0 .5em;
+  position: relative;
+  max-width: 200px;
+  margin-bottom: .4em;
+  padding: .5em .7em;
+  border: 1px solid $sub-color;
+  border-radius: 25px;
+  background-color: $sub-color+30;
+  cursor: pointer;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.radio-group label:has(:checked) {
+  background-color: $sub-color;
+  color: #fff;
+}
+
+.radio-group label::before,
+.radio-group label:has(:checked)::after {
+  border-radius: 50%;
+  content: '';
+}
+
+.radio-group label::before {
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+}
+
+.radio-group label:has(:checked)::after {
+  position: absolute;
+  top: 50%;
+  left: calc(7px + .7em);
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background-color: $sub-color;
+}
+
+.radio-group input {
+  display: none;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 5px 0 $sub-color;
+  border: 2px solid #FFF;
+  outline: 0;
+}
+
+
+.paginationjs-pages ul {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  justify-content: center;
+  .active {
+    a {
+      background: $sub-color;
+      color: #fff;
+    }
+  }
+  li {
+    list-style: none;
+    margin: 0 8px;
+    a {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      overflow: hidden;
+      background: #fff;
+      border: solid 2px $sub-color;
+      font-size: 14px;
+      color: $sub-color;
+      font-weight: bold;
+      transition: all 0.15s linear;
+    }
+    a.isActive {
+      background: $sub-color;
+      color: #fff;
+      pointer-events: none;
+    }
+    a:not(.isActive):hover {
+      background: $sub-color;
+      color: #fff;
+    }
+  }
+}
+

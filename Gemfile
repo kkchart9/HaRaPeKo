@@ -53,6 +53,10 @@ gem 'dotenv-rails'
 #アプリケーション内でHTTPリクエストを投げたい場合に使うクラス
 gem 'httpclient'
 gem 'geocoder'
+gem 'addressable'
+gem 'sass-rails'
+gem 'kaminari'
+gem 'will_paginate'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
