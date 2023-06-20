@@ -2,9 +2,9 @@ module Api
   module Recruit
     class Request
       attr_accessor :query
-      # require 'uri'
-      # require 'net/http'
-      # require 'addressable/uri'
+      require 'uri'
+      require 'net/http'
+      require 'addressable/uri'
 
       def initialize(query)
 
