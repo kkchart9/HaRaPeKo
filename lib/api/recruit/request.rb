@@ -5,6 +5,7 @@ module Api
       require 'uri'
       require 'net/http'
       require 'addressable/uri'
+      require 'active_support/core_ext'
 
       def initialize(query)
 
@@ -31,7 +32,9 @@ module Api
 
         client = HTTPClient.new
         url = Addressable::URI.parse ENV['GOURMET_SEARCH_API']
-        url.query = params.to_query
+        puts url
+        url.query = params.to_param
+        puts url
         store_name = query['store_name']
         url.query += "?name=" + store_name
         puts url
