@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  root 'searches#input'
+  root 'shops#input'
   get '/home', to: 'application#home'
-  get '/search', to: 'searches#input'
-  post '/search', to: 'searches#search'
-
+  get '/shops', to: 'shops#input'
+  post '/shops', to: 'shops#search'
+  get '/shops/:id', to: 'shops#show'
 end

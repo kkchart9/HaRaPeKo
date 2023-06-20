@@ -1,6 +1,7 @@
 $main-color: #F37222;
 $sub-color: #FBAA31;
 $third-color: #FFF2C1;
+$black: #333;
 header {
   height: 96px;
 }
@@ -14,6 +15,7 @@ body {
 footer {
   margin-top: 24px;
   text-align: center;
+  color: $black;
 }
 
 .content {
@@ -38,6 +40,7 @@ footer {
       padding: 16px;
       transition: box-shadow 0.3s;
       border-radius: 15px;
+      text-decoration: none;
       &:hover {
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
         background-color: $third-color;
@@ -48,6 +51,7 @@ footer {
       .shops-detail {
         display: flex;
         justify-content: space-around;
+        color: $black;
         p {
           width: 210px;
           height: 80px;
@@ -63,8 +67,8 @@ footer {
 }
 
 .logo-img {
-  height: 64px;
-  width: 64px;
+  height: 80px;
+  width: 80px;
 }
 
 .title {
@@ -157,6 +161,7 @@ input[type="text"]:focus {
   align-items: center;
   padding: 0;
   justify-content: center;
+  color: $black;
   .active {
     a {
       background: $sub-color;
