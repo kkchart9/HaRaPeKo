@@ -2,21 +2,6 @@ $main-color: #F37222;
 $sub-color: #FBAA31;
 $third-color: #FFF2C1;
 $black: #333;
-header {
-  height: 96px;
-}
-body {
-  height: 100vh;
-  .main {
-    height: 100%;
-    background: linear-gradient(to bottom right, $third-color, $sub-color);
-  }
-}
-footer {
-  margin-top: 24px;
-  text-align: center;
-  color: $black;
-}
 
 .content {
   height: 440px;
@@ -113,26 +98,6 @@ footer {
       position: absolute;
       content: '';
       pointer-events: none;
-    }
-
-    &::before {
-      display: inline-block;
-      right: 0;
-      width: 2.8em;
-      height: 2.8em;
-      border-radius: 0 25px 25px 0;
-      background-color: #2589d0;
-    }
-
-    &::after {
-      position: absolute;
-      top: 50%;
-      right: 1.4em;
-      transform: translate(50%, -50%) rotate(45deg);
-      width: 6px;
-      height: 6px;
-      border-bottom: 3px solid #fff;
-      border-right: 3px solid #fff;
     }
 
     & select {
