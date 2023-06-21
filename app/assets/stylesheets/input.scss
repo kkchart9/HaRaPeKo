@@ -97,20 +97,22 @@ $black: #333;
       width: 48px;
       height: 24px;
       border-radius: 50px;
-      background-color: #dddddd;
+      //background-color: #dddddd;
+      background-color: $sub-color;
       cursor: pointer;
       transition: background-color .4s;
       margin-right: 16px;
     }
 
     .toggle-btn:has(:checked) {
-      background-color: $sub-color;
+      //background-color: $sub-color;
+      background-color: #dddddd;
     }
 
     .toggle-btn::after {
       position: absolute;
       top: 0;
-      left: 0;
+      left: 55%;
       width: 24px;
       height: 24px;
       border-radius: 50%;
@@ -121,7 +123,8 @@ $black: #333;
     }
 
     .toggle-btn:has(:checked)::after {
-      left: 24px;
+      //left: 24px;
+      left: 0;
     }
 
     .toggle-btn input {

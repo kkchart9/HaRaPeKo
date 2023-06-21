@@ -18,7 +18,7 @@ class ShopsController < ApplicationController
     end
 
     # 現在地を使わない場合
-    if query[:checkbox] == "0"
+    if query[:checkbox] == "1"
       query[:latitude] = ""
       query[:longitude] = ""
     end
