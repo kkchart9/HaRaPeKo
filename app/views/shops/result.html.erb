@@ -1,6 +1,6 @@
 <% require 'json' %>
 <h1 class="title title-response">
-  検索結果
+  検索結果: <span><%= @response["results"]["results_returned"] %>件</span>
 </h1>
 <div class="content col-9 response">
   <div class="res-field">

@@ -29,7 +29,7 @@ module Api
           :lng => query['longitude'],
           :range => query['range'],
           :format => 'json',
-          :count => 50
+          :count => 99
         }
         puts params
 
