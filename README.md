@@ -1,25 +1,57 @@
-# README
+### 作者
+古波津　昂大（コハツ　コウダイ）
+### アプリ名
+「HaRaPeKo」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### コンセプト
+地図上で飲食店の位置を表示し、現在地または指定の場所から飲食店を検索できる便利なWebアプリ
 
-Things you may want to cover:
+#### こだわったポイント
+* ユーザーの現在地または指定場所からの飲食店を表示し、その周辺の飲食店を検索できる。
+* 地図上で飲食店の位置をマーカーで表示し、ユーザーにわかりやすく案内します。
 
-* Ruby version
+### 公開したアプリの URL
+https://harapeko-app.herokuapp.com/
 
-* System dependencies
+### 該当プロジェクトのリポジトリ URL
+https://github.com/kkchart9/HaRaPeKo
 
-* Configuration
+## 対象OSおよびブラウザ
+* Google Chrome 最新版
 
-* Database creation
+## 開発環境/言語
+* バックエンド
+  * Ruby 3.1
+  * Rails 7.0.5
+* フロントエンド
+  * jquery 3.3.1
+  * bootstrap@5.0.2
+* 開発環境
+  * Docker
+  * Docker-Compose
+* インフラ
+  * Heroku
 
-* Database initialization
+## 開発期間
+10日間
 
-* How to run the test suite
+## アプリケーション機能
 
-* Services (job queues, cache servers, search engines, etc.)
+### 機能一覧
+- レストラン検索：ホットペッパーグルメサーチAPIを使用して、現在地周辺の飲食店を検索する。
+- レストラン情報取得：ホットペッパーグルメサーチAPIを使用して、飲食店の詳細情報を取得する。
+- 地図アプリ連携：飲食店の所在地を地図アプリに連携する。
 
-* Deployment instructions
+### 画面一覧
+- 店舗検索画面 ：条件を指定して飲食店を検索する。現在地からの
+- 店舗一覧画面 ：検索結果の飲食店を一覧表示する。
+- 店舗詳細画面　:飲食店の詳細情報を取得する。
 
-* ...
-# HaRaPeKo
+### 使用しているAPI,SDK,ライブラリなど
+- ホットペッパーグルメサーチAPI
+- Geolocation API
+
+### アドバイスして欲しいポイント
+- 検索、一覧、詳細画面を使いやすく、見やすくしたい。
+- 色彩をどのような色にした方がいいのか聞きたい。
+- 他にどのような機能を付けた方がいいのか、もしくは捨てた方がいいのか聞きたい。
