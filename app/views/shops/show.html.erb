@@ -38,11 +38,30 @@
         </ul>
       </div>
       <div class="right-side">
-        <div class="map"></div>
+        <div class="map" id="map"></div>
       </div>
     </div>
   <% end %>
 </div>
 
 <script>
+  let map;
+  let marker;
+
+  // 現在地の取得
+  let shop_lat = <%= @response["results"]["shop"][0]["lat"] %>;
+  let shop_lng = <%= @response["results"]["shop"][0]["lng"] %>;
+  latLng = new google.maps.LatLng(shop_lat, shop_lng);
+
+  map = new google.maps.Map(document.getElementById('map'), {
+      center: latLng,
+      zoom: 12
+  });
+
+  marker = new google.maps.Marker({
+      position: latLng,
+      map: map
+  });
+
+
 </script>
