@@ -11,8 +11,12 @@
               <%= form.text_field :store_name, placeholder: '店舗を検索', class: "col-8 text-box" %>
             </div>
             <div class="select-group">
+              <label class="toggle-btn"><%= form.check_box :checkbox %><span class="tooltip">現在地を使って検索する</span></label>
               <label class="select-box"><%= form.select :pref, id: 'pref' %></label>
               <%= form.select :city, '', id: 'city' %>
+            </div>
+            <div class="text-field">
+              <%= form.text_field :address, placeholder: '地名で検索', class: "col-8 text-box" %>
             </div>
             <div class="radio-group">
               <% @ranges.each_with_index do |range, idx| %>
@@ -34,7 +38,6 @@
   </div>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key="></script>
 <script>
   let rangeDef = document.getElementById('range_3');
   rangeDef.checked = true;
@@ -161,8 +164,6 @@
               $('#city').html('<option value="">市区町村で絞り込む</option>').fadeOut();
           }
       });
-
-
   });
 
 </script>

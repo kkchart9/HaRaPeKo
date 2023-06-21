@@ -33,7 +33,6 @@
   })
 
   function template(dataArray) {
-      console.log(dataArray);
       return dataArray.map(function(data) {
           return '<a class="shop-field col-4" href="/shops/'+ data.shop_id + '"><div class="row"><div class="col-md shop"><h5>' + data.shop_name + '</h5><div class="shops-detail"><img src="' + data.logo_img + '" alt="" class="logo-img"><p>' + data.access + '</p></div></div></div></a>'
       })

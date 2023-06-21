@@ -12,6 +12,7 @@ module Api
         @params = {
           shop_id: query['id'],
           name: query['store_name'],
+          address: query['address'],
           key: ENV['RECRUIT_API_KEY'],
           lat: query['latitude'],
           lng: query['longitude'],
@@ -30,11 +31,15 @@ module Api
           :format => 'json',
           :count => 50
         }
+        puts params
 
         url = create_url(params)
 
         store_name = query['store_name']
+        address = query['address']
         url+= "&name=" + store_name
+        url+= "&address=" + address
+        puts url
 
         client = HTTPClient.new
         response = client.get(url)

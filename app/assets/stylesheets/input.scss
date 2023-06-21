@@ -4,7 +4,7 @@ $third-color: #FFF2C1;
 $black: #333;
 
 .content {
-  height: 440px;
+  height: 480px;
   margin: auto;
   background-color: #F7F7F7;
   border-radius: 16px;
@@ -60,7 +60,7 @@ $black: #333;
   text-align: center;
   color: #F37222;
   padding-top: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 48px;
 }
 .title-response {
   padding-top: 0;
@@ -72,10 +72,10 @@ $black: #333;
   flex-direction: column;
   .text-field {
     text-align: center;
-    margin-top: 36px;
     margin-bottom: 16px;
     .text-box {
       padding: 8px 10px;
+      margin-top: 8px;
       border: 1px solid #969da3;
       border-radius: 25px;
       color: #333;
@@ -88,7 +88,79 @@ $black: #333;
   }
   .select-group {
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+    position: relative;
+
+    .toggle-btn {
+      display: inline-block;
+      position: relative;
+      width: 48px;
+      height: 24px;
+      border-radius: 50px;
+      background-color: #dddddd;
+      cursor: pointer;
+      transition: background-color .4s;
+      margin-right: 16px;
+    }
+
+    .toggle-btn:has(:checked) {
+      background-color: $sub-color;
+    }
+
+    .toggle-btn::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(51, 51, 51, 0.2);
+      background-color: #fff;
+      content: '';
+      transition: left .4s;
+    }
+
+    .toggle-btn:has(:checked)::after {
+      left: 24px;
+    }
+
+    .toggle-btn input {
+      display: none;
+    }
+
+    .toggle-btn:hover > .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .tooltip {
+      display: flex;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: -40px;
+      left: 40%;
+      transform: translateX(-50%);
+      padding: .5em 1em;
+      border-radius: 3px;
+      background-color: $sub-color;
+      color: #ffffff;
+      font-size: .7em;
+      white-space: nowrap;
+      transition: opacity .3s;
+    }
+
+    .tooltip::before {
+      position: absolute;
+      bottom: -6px;
+      width: 9px;
+      height: 6px;
+      background-color: inherit;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      content: '';
+    }
+
     .select-box {
       position: relative;
     }

@@ -24,6 +24,7 @@ module Api
         url_query = params.to_param
         url = url.to_s + '?' + url_query.to_s
         url += "&address=" + @params[:address]
+        puts url
 
         client = HTTPClient.new
         response = client.get(url)
